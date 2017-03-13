@@ -364,7 +364,7 @@ void* start_thread(void* args) {
 	//printf("Created New Thread at (%d, %d)\n", befinst->x, befinst->y);
 	int res = simulate_start(befinst->grid, befinst->stack, befinst->w, befinst->h, befinst->x, befinst->y, befinst->d, befinst->sp);
 	free(befinst->stack);
-	free(befinst)
+	free(befinst);
 	int* top_v = malloc(sizeof(int));
 	*top_v = res;
 	//printf("Dying lol (%d)\n", res);
