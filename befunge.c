@@ -127,6 +127,8 @@ int simulate_start(int** grid, int* stack, int w, int h, int x, int y, int d, in
 	int a2;
 	int a3;
 
+	char c1;
+
 	int i;
 
 	bool stringmode = false;
@@ -202,6 +204,7 @@ int simulate_start(int** grid, int* stack, int w, int h, int x, int y, int d, in
 				break;
 			case ',':
 				putc(pop(stack, &sp), stdout);
+				fflush(stdout);
 				break;
 			case '.':
 				a1 = pop(stack, &sp);
@@ -283,12 +286,13 @@ int simulate_start(int** grid, int* stack, int w, int h, int x, int y, int d, in
 				}
 				break;
 			case '&':
-				printf("Error: '&' not Implemented\n");
-				exit(-1);
+				c1 = getchar();
+				c1 -= 0x30;
+				push(stack, &sp, (int)c1);
 				break;
 			case '~':
-				printf("Error: '~' not Implemented\n");
-				exit(-1);
+				c1 = getchar();
+				push(stack, &sp, (int)c1);
 				break;
 			case '"':
 				stringmode = true;

@@ -9,7 +9,7 @@ if len(sys.argv) < 2:
 
 bef = open(sys.argv[1]).read()
 lines = bef.split("\n")
-h = len(lines) - 1
+h = len(lines)
 w = max([len(x) for x in lines])
 
 def pad(s, n):
@@ -20,9 +20,4 @@ bef = "\n".join([pad(x, w) for x in lines])
 proc = pwnlib.tubes.process.process(["./befunge",str(w),str(h)])
 proc.send(bef)
 proc.sendline("")
-while True:
-    try:
-        sys.stdout.write(proc.recv())
-    except Exception:
-        break
-sys.stdout.write("\n")
+proc.interactive()
