@@ -1,5 +1,7 @@
 # Befungell
 
+![logo](assets/logo.png?raw=true)
+
 Welcome to the homepage for Befungell, an implementation of concurrent Befunge, designed for [SIGBOVIK 2017](http://sigbovik.org/2017/). You can find a link to the original paper here (shortly), or you can clone the code and play with it yourself. 
 
 ## Making the Project
