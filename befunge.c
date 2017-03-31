@@ -57,8 +57,13 @@ int main (int argc, char* argv[]) {
 		gridR = 25;
 	}
 
+
+	FILE *inp = stdin;
+	int quiet = 0;
+
 	if (argc > 3) {
-		can_thread = 0;
+		inp = fopen(argv[3], "r");
+		quiet = 1;
 	}
 
 	UNLINK_ALL();
@@ -67,15 +72,18 @@ int main (int argc, char* argv[]) {
 
 	openb   = sem_open("/open_brace",  O_CREAT, 0777, 1);
 
-	printf("Please input a grid of size %d x %d\n", gridC, gridR);
+	if (!quiet) {
+		printf("Please input a grid of size %d x %d\n", gridC, gridR);
+	}
 	
 	char* grid = (char*)malloc(sizeof(char) * (gridC + 1) * gridR + 1); 
-	FILE *inp = stdin;
  
 	fread(grid, sizeof(char), (gridC + 1) * gridR, inp);
 	grid[(gridC + 1) * gridR] = 0;
 
-	printf("*-------------------*\n");
+	if (!quiet) {
+		printf("*-------------------*\n");
+	}
 
 	simulate(parse(grid, gridC, gridR), gridC, gridR);
 
@@ -383,9 +391,9 @@ int** parse (char* inp, int w, int h) {
 		gridhead[i] = (int*) malloc(sizeof(int) * w);
 		for (j = 0; j < w; j++) {
 			gridhead[i][j] = inp[i * (w + 1) + j];
-			printf("%c", gridhead[i][j]);
+			//printf("%c", inp[i*(w+1)+j]);
 		}
-		printf("\n");
+		//printf("\n");
 	}
 	return gridhead;
 }
