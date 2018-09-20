@@ -20,6 +20,14 @@ The second two operators are designed for concurrent operations. The operator `{
 
 Several example befunge programs are available in `/progs/`. You can also find examples of non-parallel befunge applications throught the internet.
 
+## Video
+
+You can find the video [here](https://www.youtube.com/watch?v=vcF4OVrqg1o&t=5s)
+
+## Paper
+
+You can find the paper [here](https://github.com/zwade/Befungell/tree/master/assets/paper.pdf)
+
 ## Contributing
 
 ...why would you want to contribute to this? Well if you do, just issue a PR. I'll probably accept it. 
